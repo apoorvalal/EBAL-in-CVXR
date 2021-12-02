@@ -2,7 +2,7 @@
 
 estimation functions in `R/CVXR_ebal.R`.
 
-```{r}
+```r
 rm(list = ls())
 library(data.table)
 library(causalsens)
@@ -12,7 +12,9 @@ source("R/CVXR_ebal.R")
 # lalonde PSID sample
 data(lalonde.psid)
 y = 're78'; w =  'treat'
+# all other columns are controls
 x = setdiff(colnames(lalonde.psid), c(y, w))
+# returns felm regression object (can be post-processed per user preferences)
 ebalRegAdjust(lalonde.psid, y, w, x) |> summary()
 ```
 
