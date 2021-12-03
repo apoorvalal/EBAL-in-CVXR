@@ -1,6 +1,6 @@
 # `CVXRebal`: Entropy balancing in CVXR
 
-estimation functions in `R/CVXRebal.R`. The `CVXR:solve` call
+Estimation functions in `R/CVXRebal.R` (will turn into an installable package if I add new functions). The `CVXR:solve` call
 currently uses the commercial MOSEK solver, is free for academics for
 [personal use](https://www.mosek.com/license/request/). Otherwise,
 [other
