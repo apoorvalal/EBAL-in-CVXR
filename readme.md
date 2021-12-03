@@ -1,13 +1,19 @@
 # `CVXRebal`: Entropy balancing in CVXR
 
-estimation functions in `R/CVXR_ebal.R`.
+estimation functions in `R/CVXRebal.R`. The `CVXR:solve` call
+currently uses the commercial MOSEK solver, is free for academics for
+[personal use](https://www.mosek.com/license/request/). Otherwise,
+[other
+solvers](https://cvxr.rbind.io/cvxr_examples/cvxr_using-other-solvers/)
+can be used by passing it as the `solver` argument in the
+`ebalRegAdjust` function call.
 
 ```{r}
 rm(list = ls())
 library(data.table)
 library(causalsens)
 
-source("R/CVXR_ebal.R")
+source("R/CVXRebal.R")
 
 # lalonde PSID sample
 data(lalonde.psid)

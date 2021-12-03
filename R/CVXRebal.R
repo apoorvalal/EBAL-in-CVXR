@@ -27,7 +27,7 @@ ebalSolve = function(b, X, solver = "MOSEK"){
 #' @param w string with treatment name
 #' @param x character vector with control names
 #' @export
-ebalRegAdjust = function(df, y, w, x){
+ebalRegAdjust = function(df, y, w, x, solver = "MOSEK"){
   require(data.table); require(glue); require(lfe)
   # move control obs to the top
   setDT(df)
@@ -40,7 +40,7 @@ ebalRegAdjust = function(df, y, w, x){
   # matrix of control obs
   X = ctrl[, ..x] |> as.matrix()
   # solve optimisation problem in CVXR
-  ω_hat = ebalSolve(b, X)
+  ω_hat = ebalSolve(b, X, solver)
   # line up weights (solved weights for control units and 1/n for treat units)
   treatment = df[[w]]; y = df[[y]]
   ω_all = c(ω_hat, rep(1/nrow(df), sum(treatment) ) )
