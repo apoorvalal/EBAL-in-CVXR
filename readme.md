@@ -8,7 +8,7 @@ solvers](https://cvxr.rbind.io/cvxr_examples/cvxr_using-other-solvers/)
 can be used by passing it as the `solver` argument in the
 `ebalRegAdjust` function call.
 
-```{r}
+```r
 rm(list = ls())
 library(data.table)
 library(causalsens)
@@ -18,7 +18,9 @@ source("R/CVXRebal.R")
 # lalonde PSID sample
 data(lalonde.psid)
 y = 're78'; w =  'treat'
+# all other columns are controls
 x = setdiff(colnames(lalonde.psid), c(y, w))
+# returns felm regression object (can be post-processed per user preferences)
 ebalRegAdjust(lalonde.psid, y, w, x) |> summary()
 ```
 
