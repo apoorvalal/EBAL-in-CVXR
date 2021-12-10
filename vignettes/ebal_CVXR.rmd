@@ -7,6 +7,7 @@ output:
   #   variant: gfm
   html_document:
     self_contained: true
+    css: "/home/alal/Templates/boilerplate/lal-css.css"
     theme: flatly
     highlight: tango
     code_folding: show
